@@ -1,7 +1,7 @@
 {% extends 'core/base.html' %}
- {% block title %} Blog {% endblock %}
+ {% block title %} {{category.name}} {% endblock %}
   {% block content %} {% load static %} 
-  {% for blog in blogs %}
+  {% for blog in category.get_posts.all %}
 <section class="page-section cta">
 	<div class="container">
 		<div class="row">
@@ -21,9 +21,9 @@
 							<em>
 								{% for category in blog.categories.all %}
 								<a href="{% url 'category' category.id %}" class="link">{{category.name}}</a>
-                {% if not forloop.last %}
-                ,
-                {% endif %}
+								{% if not forloop.last %}
+									,
+									{% endif %}
 								{% endfor %}
 							</em></span
 						>

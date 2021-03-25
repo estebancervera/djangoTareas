@@ -6,6 +6,9 @@ from .models import Service
 
 class ServiceAdmin(admin.ModelAdmin):
     readonly_fields = ('created', "updated")
-
+    list_display = ('title',)
+    ordering = ('title', 'created')
+    search_fields = ('title',)
+    date_hierarchy = ('created')
 
 admin.site.register(Service, ServiceAdmin)

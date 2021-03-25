@@ -5,11 +5,10 @@ from .models import Category, Post
 # Create your views here.
 
 def blogs(request):
-    # html = html_base + """
-        
-    # """
-    # return HttpResponse(html)
      blogs = Post.objects.all()
-     print("LOL")
      
      return render(request, "blog/blog.html", {"blogs": blogs})
+
+def category(request, category_id):
+    category = Category.objects.get(id=category_id)
+    return render(request, 'blog/category.html', {"category": category})
