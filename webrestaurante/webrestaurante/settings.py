@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'core',
     'services',
     'blog',
+    'pages.apps.PagesConfig',
     'django_cleanup',
 ]
 
