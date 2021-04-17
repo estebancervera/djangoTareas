@@ -18,7 +18,7 @@ def contact(request):
                 'Mensaje de ' + name, # Asunto
                 content, # Mensaje
                 email, # De quien
-                ['andoni_rdgz@hotmail.com', 'andoni_rdgz@outlook.com'], # Para quien
+                ['andoni_rdgz@hotmail.com', 'andoni_rdgz@outlook.com', 'arielito66@hotmail.com'], # Para quien
             )
 
             return redirect(reverse('contact') + '?ok')
