@@ -88,6 +88,9 @@
 						<li class="nav-item px-lg-4 {% if request.path|slice:'6' == '/blog/' %} active {% endif %}">
 							<a class="nav-link text-uppercase text-expanded" href="{% url 'blog' %}">Blog</a>
 						</li>
+						<li class="nav-item px-lg-4 {% if request.path|slice:'6' == '/recipe/' %} active {% endif %}">
+							<a class="nav-link text-uppercase text-expanded" href="{% url 'recipes' %}">Recipe</a>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -119,16 +122,13 @@
 					</a>
 				</p>
 				<p class="m-0 mbt">
-				<!--
+					<!--
 					<a href="sample.html" class="link">Política de privacidad</a> ·
 					<a href="sample.html" class="link">Aviso legal</a> ·
 					<a href="sample.html" class="link">Cookies</a> -->
-					{% load pages_extra %}
-					{% get_page_list as page_list %}
-					{% for page in page_list %}
-						<a href="{% url 'page' page.id page.title|slugify %}" class="link">{{ page.title }}</a>
-						{% if not forloop.last %} . {% endif %}
-					{% endfor %}
+					{% load pages_extra %} {% get_page_list as page_list %} {% for page in page_list %}
+					<a href="{% url 'page' page.id page.title|slugify %}" class="link">{{ page.title }}</a>
+					{% if not forloop.last %} . {% endif %} {% endfor %}
 				</p>
 				<p class="m-0 mbt1">&copy; La Recova 2021</p>
 			</div>
