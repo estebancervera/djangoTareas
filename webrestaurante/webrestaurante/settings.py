@@ -41,8 +41,11 @@ INSTALLED_APPS = [
     'core',
     'services',
     'blog',
+    'contact',
+    'ckeditor',
     'pages.apps.PagesConfig',
     'django_cleanup',
+
 ]
 
 MIDDLEWARE = [
@@ -127,3 +130,24 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+# CKEditor
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-',
+             'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ]
+    }
+}
+
+# Email
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '587'
+EMAIL_HOST_USER = 'andonirdgz@gmail.com'
+EMAIL_HOST_PASSWORD = 'jabulani'
+EMAIL_USE_TLS = True
