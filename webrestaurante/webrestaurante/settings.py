@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'contact',
     'ckeditor',
     'pages.apps.PagesConfig',
+    'recipe.apps.RecipeConfig',
     'django_cleanup',
 
 ]
