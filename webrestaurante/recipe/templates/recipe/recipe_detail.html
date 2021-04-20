@@ -5,6 +5,11 @@
 			<div class="col-md-9 mx-auto text-light">
 				<h2 class="section-heading mb-4">{{recipe.title}}</h2>
 				<div>{{recipe.content|safe}}</div>
+				{% if request.user.is_staff %}
+				<p>
+					<a class="btn btn-primary" href="{% url 'recipes:update' recipe.id %}" role="button"> Editar </a>
+				</p>
+				{% endif %}
 			</div>
 		</div>
 	</div>
