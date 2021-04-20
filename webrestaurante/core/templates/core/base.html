@@ -89,7 +89,7 @@
 							<a class="nav-link text-uppercase text-expanded" href="{% url 'blog' %}">Blog</a>
 						</li>
 						<li class="nav-item px-lg-4 {% if request.path|slice:'6' == '/recipe/' %} active {% endif %}">
-							<a class="nav-link text-uppercase text-expanded" href="{% url 'recipes' %}">Recipe</a>
+							<a class="nav-link text-uppercase text-expanded" href="{% url 'recipes:recipes' %}">Recipe</a>
 						</li>
 					</ul>
 				</div>

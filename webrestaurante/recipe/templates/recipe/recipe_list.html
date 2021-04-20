@@ -1,7 +1,11 @@
-{% extends 'core/base.html' %} {% block title %}Recetas{% endblock %} {% block content %} {% load static %}
+{% extends 'core/base.html' %} 
+{% block title %}Recetas{% endblock %} 
+{% block content %} 
+{% load static %}
+{% include 'recipe/includes/menu_recipe.html' %}
 
 <div class="container mb-4">
-	{% for recipe in recipe_list %}
+	{% for recipe in recipe_list|dictsort:'id' reversed %}
 	<div class="row mt-3">
 		<div class="col-md-9 mx-auto text-light">
 			<h2 class="section-heading mb-4">
@@ -10,7 +14,12 @@
 
 			<div>
 				<p>{{recipe.content|striptags|safe|truncatechars:"200"}}</p>
-				<p><a href="{% url 'recipe' recipe.id recipe.title|slugify %}">Leer más</a></p>
+				<p>
+					<a href="{% url 'recipes:recipe' recipe.id recipe.title|slugify %}">Leer más</a>
+					{% if request.user.is_staff %}
+				 		<a class="btn btn-primary" href="{% url 'recipes:update' recipe.id %}"> Editar </a>
+					{% endif %}
+				</p>	
 			</div>
 		</div>
 	</div>

@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from services import views as views_services
 from django.conf import settings
+from recipe.urls import recipe_patterns
 
 urlpatterns = [
     path('services/', include('services.urls')),
@@ -24,7 +25,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
     path('contact/', include('contact.urls')),
-    path('recipe/', include('recipe.urls')),
+    # path('recipe/', include('recipe.urls')),
+    path('recipe/', include(recipe_patterns)),
     path('', include('core.urls')),
     # path('services/', views_services.services, name="services"),
    
