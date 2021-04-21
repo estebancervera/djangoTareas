@@ -36,3 +36,7 @@ class RecipeUpdateView(UpdateView):
 
    def get_success_url(self):
       return reverse_lazy('recipes:update', args=[self.object.id]) + '?ok'
+
+class RecipeDeleteView(DeleteView):
+    model = Recipe
+    success_url = reverse_lazy('recipes:recipes')

@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %} {% block title %}Recetas{% endblock %} {% block content %} {% load static %} {% include 'recipe/includes/menu_recipe.html' %}
+
+<div class="container mb-4">
+	<!-- Modal -->
+
+	<div class="modal-dialog" role="document">
+		<form method="post">
+			{% csrf_token %}
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Eliminar Receta</h5>
+				</div>
+				<div class="modal-body">Seguro que desea eliminar "{{ object }}"?</div>
+				<div class="modal-footer">
+					<a role="button" class="btn btn-secondary" href="{% url 'recipes:recipes' %}">Cerrar</a>
+					<input type="submit" class="btn btn-danger" value="Eliminar" />
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}

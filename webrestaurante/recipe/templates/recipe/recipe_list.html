@@ -1,4 +1,5 @@
-{% extends 'core/base.html' %} {% block title %}Recetas{% endblock %} {% block content %} {% load static %} {% include 'recipe/includes/menu_recipe.html' %}
+{% extends 'core/base.html' %} {% block title %}Recetas{% endblock %} {% block content %} {% load static %} 
+{% include 'recipe/includes/menu_recipe.html' %}
 <div class="container mb-4">
 	{% for recipe in recipe_list|dictsort:'id' reversed %}
 	<div class="row mt-3">
@@ -10,13 +11,13 @@
 			<div>
 				<p>{{recipe.content|striptags|safe|truncatechars:"200"}}</p>
 				<div class="row">
-				
 					<p><a href="{% url 'recipes:recipe' recipe.id recipe.title|slugify %}">Leer más</a></p>
-					
+
 					{% if request.user.is_staff %}
-					
-						<a class="btn btn-primary ml-2" href="{% url 'recipes:update' recipe.id %}" role="button"> Editar </a>
-					
+
+					<a class="btn btn-primary ml-2" href="{% url 'recipes:update' recipe.id %}" role="button"> Editar </a>
+					<a class="btn btn-danger ml-2" href="{% url 'recipes:delete' recipe.id %}" role="button"> Eliminar </a>
+
 					{% endif %}
 				</div>
 			</div>
