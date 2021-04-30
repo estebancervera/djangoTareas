@@ -14,12 +14,12 @@ def contact(request):
             content = request.POST.get('content', '')
 
             # mandar correo
-            send_mail(
-                'Mensaje de ' + name, # Asunto
-                content, # Mensaje
-                email, # De quien
-                ['andoni_rdgz@hotmail.com', 'andoni_rdgz@outlook.com', 'arielito66@hotmail.com'], # Para quien
-            )
+            subject = 'Gracias por contactarnos'
+            message = f'Hi {name}, gracias por contactarnos, en un momento nos contactaremos contigo..' 
+            message += "\n\n\n----------------------------\n\n\n" + content
+            email_from = settings.EMAIL_HOST_USER
+            recipient_list = [email, ]
+            send_mail(subject, message, email_from, recipient_list)
 
             return redirect(reverse('contact') + '?ok')
 

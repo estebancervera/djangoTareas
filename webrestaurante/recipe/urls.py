@@ -8,6 +8,6 @@ recipe_patterns = ([
     path('<int:pk>/<slug:recipe_slug>/', RecipeDetailView.as_view(), name='recipe'),
     path('create/', RecipeCreateView.as_view(), name='create' ),
     path('update/<int:pk>', RecipeUpdateView.as_view(), name='update' ),
-      path('delete/<int:pk>', RecipeDeleteView.as_view(), name='delete' )
+    path('delete/<int:pk>', RecipeDeleteView.as_view(), name='delete' )
 ], 'recipes',)
 

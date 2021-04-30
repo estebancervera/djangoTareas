@@ -19,3 +19,15 @@ class BlogTemplateView(TemplateView):
 def category(request, category_id):
     category = Category.objects.get(id=category_id)
     return render(request, 'blog/category.html', {"category": category})
+
+
+class BlogCategoryTemplateView(TemplateView):
+
+    template_name = 'blog/category.html'
+    
+    def get_context_data(self, **kwargs):
+        print()
+        context = super().get_context_data(**kwargs)
+        print(self.kwargs['category_id'])
+        context['category'] = Category.objects.get(id=self.kwargs['category_id'])
+        return context
