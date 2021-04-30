@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from .forms import ContactForm
 from django.core.mail import send_mail
-
+from django.conf import settings
 def contact(request):
     contact_form = ContactForm()
 
